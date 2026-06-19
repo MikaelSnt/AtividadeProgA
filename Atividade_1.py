@@ -76,7 +76,7 @@ preenchimento = StringVar(master=janela)
 preenchimento.set("Black")
 
 tipo_figura_var = StringVar(value="Retângulos")
-option_menu = OptionMenu(frame, tipo_figura_var, 'Retângulos', 'Ovais', 'Círculos', GROOVE)
+option_menu = OptionMenu(frame, tipo_figura_var, 'Retângulos', 'Ovais', 'Círculos')
 
 canvas = Canvas(janela, width=600, height=600, bg="white")
 canvas.bind('<ButtonPress-1>',desenhar_figuras )
@@ -85,7 +85,7 @@ canvas.bind('<ButtonRelease-1>', finalizar_desenho)
 
 btn = Button(janela, relief=RAISED, text="Limpar", command=limpar_tela)
 
-btn.pack(fill=X, anchor="center")
+btn.pack( anchor="center")
 frame.pack(fill="x", anchor="w")
 option_menu.pack(side=LEFT, padx=5, pady=5)
 canvas.pack(fill="both", expand=True)
