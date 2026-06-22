@@ -18,6 +18,11 @@ class Aplicativo:
         self.Menu()
 
     def Menu(self):
+<<<<<<< HEAD
+=======
+        self.largura = 400
+        self.altura = 100
+>>>>>>> 5f33bf9 (Segunda Entrega V.0.1)
         frame_Menu = Frame(self.janela)
         frame_Menu.pack()
 
@@ -25,6 +30,14 @@ class Aplicativo:
         self.tipo_figura.trace_add("write", self.Aparecer_menu_poligonos)
         Menu_figura = OptionMenu(frame_Menu, self.tipo_figura, "Rabisco", "Linha", "Retângulo", "Oval", "Círculo", "Polígono")
         Menu_figura.grid(row=0, column=0)
+<<<<<<< HEAD
+=======
+        
+        self.menu_tamanho = StringVar(value="1")
+        self.menu_tamanho.trace_add("write", self.Mudar)
+        menu_tamanho = OptionMenu(frame_Menu, self.menu_tamanho, "800 x 600", "1280 x 600", "1920 x 1300")
+        menu_tamanho.grid(row=0,column=12)
+>>>>>>> 5f33bf9 (Segunda Entrega V.0.1)
 
         self.cor_borda = StringVar(value="black")
         Menu_Borda = OptionMenu(frame_Menu, self.cor_borda, "black", "blue", "green", "yellow", "purple")
@@ -44,16 +57,34 @@ class Aplicativo:
 
         Btn_limpar = Button(frame_Menu, text="Limpar",  command=self.limpar)
         Btn_limpar.grid(row=0, column=6)
+<<<<<<< HEAD
 
         self.canvas = Canvas(self.janela, bg="white",  width=800,  height=600 )
         self.canvas.pack()
 
 
 
+=======
+ 
+        self.canvas = Canvas(self.janela, bg="white", width=self.largura, height=self.altura)
+        self.canvas.pack()
+
+
+>>>>>>> 5f33bf9 (Segunda Entrega V.0.1)
         self.canvas.bind("<ButtonPress-1>",  self.iniciar_desenho )
         self.canvas.bind("<B1-Motion>", self.atualizar_desenho)
         self.canvas.bind("<ButtonRelease-1>", self.finalizar_desenho)
     
+<<<<<<< HEAD
+=======
+
+    def Mudar(self, *args):
+        tamanho = self.menu_tamanho.get().split()
+        self.altura = int(tamanho[0])
+        self.largura = int(tamanho[2])
+        self.canvas.config( width=self.largura, height=self.altura)
+
+>>>>>>> 5f33bf9 (Segunda Entrega V.0.1)
     def Aparecer_menu_poligonos(self, *Nome):
         if self.tipo_figura.get() == "Polígono":
             self.Menu_poly.grid(row=0, column=1)
